@@ -6,24 +6,28 @@ public class Employee {
 	{
 		Random result = new Random();
 		int monthlySalary=0;
-		for(int i=1;i<=20;i++)
+		int hours=0,days=0;
+		
+		while(hours<=100 && days<=20)
 		{
-			int hours=0;
-			int value= result.nextInt(2);
+			int emphours=0;
+			days++;
+			int value=result.nextInt(3);
 			if(value==1)
 			{
-				hours=8;
+				emphours=8;
 			}
 			else if(value==2)
 			{
-				hours=4;
+				emphours=4;
 			}
 			else
 			{
-				hours=0;
+				emphours=0;
 			}
-			monthlySalary=monthlySalary+(120*hours);
+			hours=hours+emphours;
+			monthlySalary=monthlySalary+(120*emphours);
 		}
-		System.out.println("Monthly Salary is :"+monthlySalary);
+		System.out.println("Emloyee Monthly Wages : "+monthlySalary);
 	}
 }
