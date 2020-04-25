@@ -4,19 +4,8 @@ import java.util.Random;
 public class Employee {
 	public static void main(String arg[])
 	{
-		if(EmployeeAttendence()==true)
-		{
-		System.out.println("Employee Present");
-		}
-		else
-		{
-			System.out.println("Employee Absent");
-		}
+		System.out.println("Daily Wages is :"+(int)(8*120));
 	}
-	public static boolean EmployeeAttendence()
-	{
-		Random result = new Random();
-		return result.nextBoolean();
-	}
+	
 
 }
