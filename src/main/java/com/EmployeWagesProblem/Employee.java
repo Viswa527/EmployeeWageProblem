@@ -4,7 +4,7 @@ import java.util.Random;
 public class Employee {
 	public static void main(String arg[])
 	{
-		if(EmployeeAttendence())
+		if(EmployeeAttendence()==true)
 		{
 		System.out.println("Employee Present");
 		}
