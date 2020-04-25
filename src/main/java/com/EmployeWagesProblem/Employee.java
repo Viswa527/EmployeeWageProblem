@@ -5,23 +5,25 @@ public class Employee {
 	public static void main(String arg[])
 	{
 		Random result = new Random();
-		int value= result.nextInt(3);
-		switch(value)
+		int monthlySalary=0;
+		for(int i=1;i<=20;i++)
 		{
-			case 1:
+			int hours=0;
+			int value= result.nextInt(2);
+			if(value==1)
 			{
-				System.out.println("Part Time Wages is :"+(int)(4*120));
-				break;
+				hours=8;
 			}
-			case 2:
+			else if(value==2)
 			{
-				System.out.println("Full Time Wages is "+(int)(8*120));
-				break;
+				hours=4;
 			}
-			default:
+			else
 			{
-				System.out.println("NO JOB--NO WAGES");
+				hours=0;
 			}
+			monthlySalary=monthlySalary+(120*hours);
 		}
+		System.out.println("Monthly Salary is :"+monthlySalary);
 	}
 }
