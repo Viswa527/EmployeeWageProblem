@@ -1,5 +1,6 @@
 package MyNewProject;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;	
 class Employee 
@@ -10,7 +11,7 @@ class Employee
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter number of Companies  : ");
 		int numberOfCompany = scan.nextInt();
-		CompanyEmpWage array[]=new CompanyEmpWage[numberOfCompany]; 
+		ArrayList<CompanyEmpWage> arrayList =new ArrayList<CompanyEmpWage>();
 		int index = 0;
 		while(numberOfCompany>0)
 		{
@@ -22,7 +23,7 @@ class Employee
 			int daily_Wage_PerHour=scan.nextInt();
 			System.out.println("Enter days in month of Company : ");
 			int days_PerMonth=scan.nextInt();
-			array[index]=new CompanyEmpWage(company,daily_Wage_PerHour,days_PerMonth);
+			arrayList.add(new CompanyEmpWage(company,daily_Wage_PerHour,days_PerMonth));
 			index++;
 		}
 	}
