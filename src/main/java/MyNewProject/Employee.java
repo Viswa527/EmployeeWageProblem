@@ -54,7 +54,7 @@ class Employee
 			String company = di.nextLine();
 			int wage_perHour= result.nextInt(10)+20;
 			int working_Days = result.nextInt(15)+5;
-			System.out.println(company);
+			System.out.println("Name of company is : "+company);
 			calculate_salary(wage_perHour,working_Days);
 			System.out.println("Wages per Hours : "+wage_perHour);
 			System.out.println("Working Days :"+working_Days);
