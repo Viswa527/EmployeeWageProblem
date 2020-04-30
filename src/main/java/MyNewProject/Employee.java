@@ -26,13 +26,38 @@ class Employee
 			arrayList.add(new CompanyEmpWage(company,daily_Wage_PerHour,days_PerMonth));
 			index++;
 		}
+		System.out.println("Enter Name of the company to find Employee Wages");
+		String nameOfCompany=scan.nextLine();
+		nameOfCompany=scan.nextLine();
+		for(CompanyEmpWage data:arrayList)
+		{
+			if(data.company.equals(nameOfCompany))
+			{
+				data.empWageOfCompany();
+				index = 0;
+				break;
+			}
+		}
+		if(index!=0)
+		{
+			System.out.println("Data Not Found");
+		}
 	}
 	
 }
 class CompanyEmpWage
 {
 	static int emphours;
+	String company;
+	int daily_Wage_PerHour; 
+	int days_PerMonth;
 	public CompanyEmpWage(String company, int daily_Wage_PerHour, int days_PerMonth) {
+		this.company=company;
+		this.daily_Wage_PerHour=daily_Wage_PerHour;
+		this.days_PerMonth=days_PerMonth;
+	}
+
+	public void empWageOfCompany() {
 		  Random result = new Random();
 		  int value;
 			   int day=0;
