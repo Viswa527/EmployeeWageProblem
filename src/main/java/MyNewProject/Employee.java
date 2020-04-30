@@ -35,14 +35,24 @@ class CompanyEmpWage
 	public CompanyEmpWage(String company, int daily_Wage_PerHour, int days_PerMonth) {
 		  Random result = new Random();
 		  int value;
-			   int days=0;
+			   int day=0;
 			   int monthlySalary = 0;
-			   while(days<days_PerMonth )
+			   int daily_Wage[]=new int[days_PerMonth];
+			   while(day<days_PerMonth )
 			   {
-				   days++;
+				   
 				   value = result.nextInt(3);
 				   get_Working_Hours();
+				   daily_Wage[day]=daily_Wage_PerHour*emphours;
 				   monthlySalary =monthlySalary+(daily_Wage_PerHour*emphours);
+				   day++;
+			   }
+			   int index=1;
+			   System.out.println("----------Daily Wages------------ ");
+			   for(int data:daily_Wage)
+			   {
+				   System.out.println("Day-"+index+" --> "+data);
+				   index++;
 			   }
 			   System.out.println(company +" Monthly salary : "+monthlySalary);
 			   
