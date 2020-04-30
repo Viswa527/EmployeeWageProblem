@@ -4,12 +4,53 @@ import java.util.Random;
 import java.util.Scanner;	
 class Employee 
 {
-	static int emphours=0;
-	static int value = 0;
-
+	public static void main(String[] args) 
+	{
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter number of Companies  : ");
+		int numberOfCompany = scan.nextInt();
+		CompanyEmpWage array[]=new CompanyEmpWage[numberOfCompany]; 
+		int index = 0;
+		while(numberOfCompany>0)
+		{
+			System.out.println("Enter name of Company :");
+			numberOfCompany--;
+			String company = scan.nextLine();
+			company=scan.next();
+			System.out.println("Enter Daily Wage Per Hour of Company : ");
+			int daily_Wage_PerHour=scan.nextInt();
+			System.out.println("Enter days in month of Company : ");
+			int days_PerMonth=scan.nextInt();
+			array[index]=new CompanyEmpWage(company,daily_Wage_PerHour,days_PerMonth);
+			index++;
+		}
+	}
+	
+}
+class CompanyEmpWage
+{
+	static int emphours;
+	public CompanyEmpWage(String company, int daily_Wage_PerHour, int days_PerMonth) {
+		  Random result = new Random();
+		  int value;
+			   int days=0;
+			   int monthlySalary = 0;
+			   while(days<days_PerMonth )
+			   {
+				   days++;
+				   value = result.nextInt(3);
+				   get_Working_Hours();
+				   monthlySalary =monthlySalary+(daily_Wage_PerHour*emphours);
+			   }
+			   System.out.println(company +" Monthly salary : "+monthlySalary);
+			   
+	}
 
 	public static void get_Working_Hours()
 	{
+		Random result =new Random();
+		int value = result.nextInt(3);
 		if(value==1)
 		{
 			emphours=8;
@@ -21,41 +62,6 @@ class Employee
 		else
 		{
 			emphours=0;
-		}
-	}
-	public static int employeeWageBuilder(int daily_Wages_PerHour,int days_In_Month)
-	{
-		   Random result = new Random();
-		   value = result.nextInt(3);
-		   int days=0;
-		   int monthlySalary = 0;
-		   while(days<days_In_Month )
-		   {
-			   days++;
-			   value = result.nextInt(3);
-			   get_Working_Hours();
-			   monthlySalary =monthlySalary+(daily_Wages_PerHour*emphours);
-		   }
-		   return monthlySalary;
-	}
-	public static void main(String arg[])
-	{
-		Scanner d = new Scanner(System.in);
-		System.out.println("Enter no of compaanies");
-		int numberOfCompany=d.nextInt();
-		int i = 0;
-		while(numberOfCompany>i)
-		{
-			i++;
-			Scanner di = new Scanner(System.in);
-			System.out.print("Enter name of company : ");
-			String company = di.nextLine();
-			System.out.print("Enter wages per hour of company : ");
-			int daily_Wages_PerHour = d.nextInt();
-			System.out.print("Enter daily hours in one-day company : ");
-			int days_In_Month= d.nextInt();
-			System.out.println(company+" Monthly Salary : "+employeeWageBuilder(daily_Wages_PerHour,days_In_Month));
-			
 		}
 	}
 }
