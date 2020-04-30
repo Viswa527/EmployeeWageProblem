@@ -6,8 +6,7 @@ class Employee
 {
 	static int emphours=0;
 	static int value = 0;
-	static int working_Hours_Per_Month=0;
-	static int monthlySalary=0;
+
 
 	public static void get_Working_Hours()
 	{
@@ -21,27 +20,26 @@ class Employee
 		}
 		else
 		{
-			emphours=1;
+			emphours=0;
 		}
 	}
-	public static void calculate_salary(int wages_PerHour,int workingDays)
+	public static int employeeWageBuilder(int daily_Wages_PerHour,int days_In_Month)
 	{
-		int days = 0;
-		int hours = 0;
-		Random result = new Random();
-		while(hours<=wages_PerHour && days<=workingDays)
-		{
-			days++;
-			value=result.nextInt(3);
-			get_Working_Hours();
-			hours=hours+emphours;
-			monthlySalary=monthlySalary+(120*emphours);
-		}
-		System.out.println("Employee Monthly Wages : "+monthlySalary);
+		   Random result = new Random();
+		   value = result.nextInt(3);
+		   int days=0;
+		   int monthlySalary = 0;
+		   while(days<days_In_Month )
+		   {
+			   days++;
+			   value = result.nextInt(3);
+			   get_Working_Hours();
+			   monthlySalary =monthlySalary+(daily_Wages_PerHour*emphours);
+		   }
+		   return monthlySalary;
 	}
 	public static void main(String arg[])
 	{
-		Random result = new Random();
 		Scanner d = new Scanner(System.in);
 		System.out.println("Enter no of compaanies");
 		int numberOfCompany=d.nextInt();
@@ -52,13 +50,12 @@ class Employee
 			Scanner di = new Scanner(System.in);
 			System.out.print("Enter name of company : ");
 			String company = di.nextLine();
-			int wage_perHour= result.nextInt(10)+20;
-			int working_Days = result.nextInt(15)+5;
-			System.out.println("Name of company is : "+company);
-			calculate_salary(wage_perHour,working_Days);
-			System.out.println("Wages per Hours : "+wage_perHour);
-			System.out.println("Working Days :"+working_Days);
-			working_Hours_Per_Month = wage_perHour*working_Days;
+			System.out.print("Enter wages per hour of company : ");
+			int daily_Wages_PerHour = d.nextInt();
+			System.out.print("Enter daily hours in one-day company : ");
+			int days_In_Month= d.nextInt();
+			System.out.println(company+" Monthly Salary : "+employeeWageBuilder(daily_Wages_PerHour,days_In_Month));
+			
 		}
 	}
 }
