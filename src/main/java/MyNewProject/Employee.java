@@ -2,35 +2,27 @@ package MyNewProject;
 
 import java.util.Random;
 import java.util.Scanner;	
-class Employee 
-{
+class Employee {
 	static int emphours=0;
 	static int value = 0;
 	static int working_Hours_Per_Month=0;
 	static int monthlySalary=0;
 
-	public static void get_Working_Hours()
-	{
-		if(value==1)
-		{
+	public static void get_Working_Hours() {
+		if(value==1) {
 			emphours=8;
-		}
-		else if(value==2)
-		{
+		} else if(value==2){
 			emphours=4;
-		}
-		else
-		{
+		} else {
 			emphours=1;
 		}
 	}
-	public static void calculate_salary(int wages_PerHour,int workingDays)
-	{
+	
+	public static void calculate_salary(int wages_PerHour,int workingDays) {
 		int days = 0;
 		int hours = 0;
 		Random result = new Random();
-		while(hours<=wages_PerHour && days<=workingDays)
-		{
+		while(hours<=wages_PerHour && days<=workingDays) {
 			days++;
 			value=result.nextInt(3);
 			get_Working_Hours();
@@ -39,15 +31,14 @@ class Employee
 		}
 		System.out.println("Employee Monthly Wages : "+monthlySalary);
 	}
-	public static void main(String arg[])
-	{
+	
+	public static void main(String arg[]) {
 		Random result = new Random();
 		Scanner d = new Scanner(System.in);
 		System.out.println("Enter no of compaanies");
 		int numberOfCompany=d.nextInt();
 		int i = 0;
-		while(numberOfCompany>i)
-		{
+		while(numberOfCompany>i) {
 			i++;
 			Scanner di = new Scanner(System.in);
 			System.out.print("Enter name of company : ");
